@@ -65,29 +65,41 @@ CIRCUIT DIAGRAM
 9.	Ensure safety before powering up the device 
 
 
+PROGRAM
+```
+void setup()
+{
+ pinMode(A0,INPUT);
+ pinMode(7,OUTPUT);
+ pinMode(8,OUTPUT);
+ Serial.begin(9600);
+}
 
-**PROGRAM** 
+void loop()
+{
+ int Sensorvalue = analogRead(A0);
+ Serial.print("Sensor Value= ");
+ Serial.println(Sensorvalue);
+ if(Sensorvalue<=30)
+ {
+   digitalWrite(8,HIGH);
+   digitalWrite(7,LOW);
+ }
+ else if(Sensorvalue>=500)
+ {
+   digitalWrite(8,LOW);
+   digitalWrite(7,HIGH);
+ }
+}
+```
  
+Simulation output: 
+
+![image](https://user-images.githubusercontent.com/104021170/206891043-4099f4b2-5a72-4a6c-ae6a-be8e4dda073c.png)
 
 
 
 
+RESULT: 
 
-
-
-
-
-**
-**Simulation output:** 
-**
-
-
-[My image](username.github.com/repository/img/image.jpg)
-
-
-
-
-
-
-
-**RESULT: ** Arduino uno analog input functioning is learned and interfaced with digital input switch .
+Arduino uno analog input functioning is learned and interfaced with digital input switch .
